@@ -22,14 +22,14 @@ struct Expression {
         case SlightSmile
         case Neutral
         case Frown
-        case Angry
+        case Sad
     }
     enum ColorPattern: Int {
-        case YellowEmoji
-        //case Burgundy
-       // case Blue
-        case Alien
-        //case Orange
+        case Yellow
+        case Pumpkin
+        case Robot
+        case Frog
+        case Ghost
         
     }
     

@@ -17,6 +17,7 @@ class FaceView: UIView {
     var mouthColor: UIColor = UIColor(red: 58/255, green: 46/255, blue: 57/255, alpha: 1.0)
     
     
+    
     private enum Eye {
         case Left
         case Right
@@ -47,6 +48,11 @@ class FaceView: UIView {
         }
     }
     var rightEyeOpen: Bool = true {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    var isMouthFilled: Bool = false {
         didSet {
             setNeedsDisplay()
         }
@@ -119,6 +125,7 @@ class FaceView: UIView {
     
     private func pathForMouth() -> UIBezierPath
     {
+        mouthColor.set()
         let mouthWidth = skullRadius / Ratios.SkullRadiusToMouthWidth
         let mouthHeight = skullRadius / Ratios.SkullRadiusToMouthHeight
         let mouthOffset = skullRadius / Ratios.SkullRadiusToMouthOffset
@@ -153,7 +160,11 @@ class FaceView: UIView {
         pathForEye(eye: .Right).fill()
         pathForEyeball(eye: .Left).fill()
         pathForEyeball(eye: .Right).fill()
-        pathForMouth().stroke()
+        if isMouthFilled {
+        pathForMouth().fill()
+        } else {
+            pathForMouth().stroke()
+        }
         
         
     }
@@ -164,7 +175,7 @@ class FaceView: UIView {
         static let EyeRadiusToEyeballRadius:CGFloat = 1.6
         static let SkullRadiusToMouthWidth: CGFloat = 1
         static let SkullRadiusToMouthHeight: CGFloat = 1
-        static let SkullRadiusToMouthOffset: CGFloat = 3
+        static let SkullRadiusToMouthOffset: CGFloat = 2.5
     }
     
 

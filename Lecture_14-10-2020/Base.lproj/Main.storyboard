@@ -25,6 +25,10 @@
                                     <outletCollection property="gestureRecognizers" destination="IbC-Ze-8lC" appends="YES" id="fKX-J6-yYa"/>
                                     <outletCollection property="gestureRecognizers" destination="M2T-DC-QuC" appends="YES" id="A3j-aK-F5X"/>
                                     <outletCollection property="gestureRecognizers" destination="g7t-cW-Cnv" appends="YES" id="8cS-HU-3gW"/>
+                                    <outletCollection property="gestureRecognizers" destination="SY7-22-kMD" appends="YES" id="TQz-kN-ukE"/>
+                                    <outletCollection property="gestureRecognizers" destination="apL-Tf-OAU" appends="YES" id="hhg-b7-Grn"/>
+                                    <outletCollection property="gestureRecognizers" destination="aXM-EJ-jCm" appends="YES" id="U68-e1-BJH"/>
+                                    <outletCollection property="gestureRecognizers" destination="sbM-LE-yyB" appends="YES" id="eQK-fx-zrB"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -49,6 +53,26 @@
                 <swipeGestureRecognizer direction="up" id="g7t-cW-Cnv" userLabel="SwipeUp Gesture Recognizer">
                     <connections>
                         <action selector="swipeUpOnFace:" destination="BYZ-38-t0r" id="tv7-sH-kPV"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <pinchGestureRecognizer id="SY7-22-kMD">
+                    <connections>
+                        <action selector="pinchToReset:" destination="BYZ-38-t0r" id="tzZ-gi-AZl"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="apL-Tf-OAU" userLabel="SwipeRight Gesture Recognizer">
+                    <connections>
+                        <action selector="swipeRightOnFace:" destination="BYZ-38-t0r" id="qJA-MX-jVy"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="aXM-EJ-jCm" userLabel="SwipeDown Gesture Recognizer">
+                    <connections>
+                        <action selector="swipeDownOnFace:" destination="BYZ-38-t0r" id="dH8-0W-vjb"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="sbM-LE-yyB" userLabel="SwipeLeft Gesture Recognizer">
+                    <connections>
+                        <action selector="swipeLeftOnFace:" destination="BYZ-38-t0r" id="5hF-Xa-k76"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
