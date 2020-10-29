@@ -24,6 +24,7 @@
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="IbC-Ze-8lC" appends="YES" id="fKX-J6-yYa"/>
                                     <outletCollection property="gestureRecognizers" destination="M2T-DC-QuC" appends="YES" id="A3j-aK-F5X"/>
+                                    <outletCollection property="gestureRecognizers" destination="g7t-cW-Cnv" appends="YES" id="8cS-HU-3gW"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -45,6 +46,11 @@
                         <action selector="longPressFace:" destination="BYZ-38-t0r" id="pdV-XS-cd2"/>
                     </connections>
                 </pongPressGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="g7t-cW-Cnv" userLabel="SwipeUp Gesture Recognizer">
+                    <connections>
+                        <action selector="swipeUpOnFace:" destination="BYZ-38-t0r" id="tv7-sH-kPV"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="124.55357142857142"/>
         </scene>

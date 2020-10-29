@@ -11,9 +11,11 @@ import UIKit
 @IBDesignable
 class FaceView: UIView {
     @IBInspectable
-    var blackCoffeeColor: UIColor = UIColor(red: 58/255, green: 46/255, blue: 57/255, alpha: 1.0)
-    var yellowColor: UIColor = UIColor(red: 253/255, green: 213/255, blue: 60/255, alpha: 1.0)
-    var whiteColor: UIColor = UIColor.white
+    var eyeBallColor: UIColor = UIColor(red: 58/255, green: 46/255, blue: 57/255, alpha: 1.0)
+    var skullColor: UIColor = UIColor(red: 253/255, green: 213/255, blue: 60/255, alpha: 1.0)
+    var eyeColor: UIColor = UIColor.white
+    var mouthColor: UIColor = UIColor(red: 58/255, green: 46/255, blue: 57/255, alpha: 1.0)
+    
     
     private enum Eye {
         case Left
@@ -39,12 +41,17 @@ class FaceView: UIView {
             setNeedsDisplay()
         }
     }
-    var eyesOpen: Bool = true {
+    var leftEyeOpen: Bool = true {
         didSet {
             setNeedsDisplay()
         }
     }
-    var lineWidth: CGFloat = 8.0
+    var rightEyeOpen: Bool = true {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    var lineWidth: CGFloat = 9
     
     private func pathForCircleCenteredAtPoint(midPoint: CGPoint, withRadius radius: CGFloat) -> UIBezierPath {
         let path = UIBezierPath(
@@ -72,12 +79,16 @@ class FaceView: UIView {
     
     private func pathForEye(eye: Eye) -> UIBezierPath
     {
+        eyeColor.set()
         let eyeRadius = skullRadius / Ratios.SkullRadiusToEyeRadius
         let eyeCenter = getEyeCenter(eye: eye)
-        if eyesOpen {
+        if leftEyeOpen && eye == .Left {
             return pathForCircleCenteredAtPoint(midPoint: eyeCenter, withRadius: eyeRadius)
-        } else {
-            blackCoffeeColor.set()
+        } else if rightEyeOpen && eye == .Right {
+            return pathForCircleCenteredAtPoint(midPoint: eyeCenter, withRadius: eyeRadius)
+        }
+        else {
+            eyeBallColor.set()
             let path = UIBezierPath()
             path.move(to: CGPoint(x: eyeCenter.x - eyeRadius, y: eyeCenter.y))
             path.addLine(to: CGPoint(x: eyeCenter.x + eyeRadius, y: eyeCenter.y))
@@ -88,12 +99,16 @@ class FaceView: UIView {
     
     private func pathForEyeball(eye: Eye) -> UIBezierPath
     {
+        eyeBallColor.set()
         let eyeRadius = skullRadius / Ratios.SkullRadiusToEyeRadius
         let eyeballRadius = eyeRadius / Ratios.EyeRadiusToEyeballRadius
         let eyeCenter = getEyeCenter(eye: eye)
-        if eyesOpen {
+        if leftEyeOpen && eye == .Left {
             return pathForCircleCenteredAtPoint(midPoint: eyeCenter, withRadius: eyeballRadius)
-        } else {
+        } else if rightEyeOpen && eye == .Right {
+            return pathForCircleCenteredAtPoint(midPoint: eyeCenter, withRadius: eyeballRadius)
+        }
+        else {
             let path = UIBezierPath()
             path.move(to: CGPoint(x: eyeCenter.x - eyeRadius, y: eyeCenter.y))
             path.addLine(to: CGPoint(x: eyeCenter.x + eyeRadius, y: eyeCenter.y))
@@ -128,23 +143,16 @@ class FaceView: UIView {
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
-        yellowColor.set()
+        skullColor.set()
         let path = pathForCircleCenteredAtPoint(midPoint: skullCenter, withRadius: skullRadius)
         path.stroke()
         path.fill()
-        
-        whiteColor.set()
-        
-        
-        
         pathForEye(eye: .Left).stroke()
         pathForEye(eye: .Right).stroke()
         pathForEye(eye: .Left).fill()
         pathForEye(eye: .Right).fill()
-        blackCoffeeColor.set()
         pathForEyeball(eye: .Left).fill()
         pathForEyeball(eye: .Right).fill()
-        blackCoffeeColor.set()
         pathForMouth().stroke()
         
         
@@ -153,8 +161,7 @@ class FaceView: UIView {
     private struct Ratios {
         static let SkullRadiusToEyeOffset: CGFloat = 2.6
         static let SkullRadiusToEyeRadius: CGFloat = 2.9
-        static let EyeRadiusToEyeballRadius:
-            CGFloat = 1.5
+        static let EyeRadiusToEyeballRadius:CGFloat = 1.6
         static let SkullRadiusToMouthWidth: CGFloat = 1
         static let SkullRadiusToMouthHeight: CGFloat = 1
         static let SkullRadiusToMouthOffset: CGFloat = 3

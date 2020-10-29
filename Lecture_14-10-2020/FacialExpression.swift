@@ -11,8 +11,10 @@ import Foundation
 struct Expression {
     
     enum Eyes: Int {
-        case Closed
+        case LeftOpenRightClosed
+        case LeftClosedRightOpen
         case Open
+        case Closed
     }
     enum Mouth : Int {
         case Joy
@@ -22,8 +24,18 @@ struct Expression {
         case Frown
         case Angry
     }
+    enum ColorPattern: Int {
+        case YellowEmoji
+        //case Burgundy
+       // case Blue
+        case Alien
+        //case Orange
+        
+    }
     
     var eyes : Eyes
     
     var mouth : Mouth
+    
+    var colorPattern : ColorPattern
 }
