@@ -15,6 +15,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         updateUI()
         secondUpdateUI()
+        isFacesEquals()
         
     }
 
@@ -153,24 +154,59 @@ class ViewController: UIViewController {
 
         }
     }
+    @IBAction func SecondSwipeUpOnFace(_ recognizer: UISwipeGestureRecognizer) {
+        if recognizer.state == .ended {
+            print("Swiped upwards")
+            secondExpression.colorPattern = .Robot
+        }
+            print(secondExpression.colorPattern)
+            
+        }
+        
+    @IBAction func SecondSwipeRightOnFace(_ recognizer: UISwipeGestureRecognizer) {
+        if recognizer.state == .ended {
+            print("Swiped upwards")
+            secondExpression.colorPattern = .Ghost
+        }
+            print(secondExpression.colorPattern)
+    }
+    @IBAction func SecondSwipeDownOnFace(_ recognizer: UISwipeGestureRecognizer) {
+        if recognizer.state == .ended {
+            print("Swiped upwards")
+            secondExpression.colorPattern = .Pumpkin
+        }
+            print(secondExpression.colorPattern)
+        
+    }
+    @IBAction func secondSwipeLeftOnFace(_ recognizer: UISwipeGestureRecognizer) {
+        if recognizer.state == .ended {
+            print("Swiped upwards")
+            secondExpression.colorPattern = .Frog
+        }
+            print(secondExpression.colorPattern)
+    }
     @IBOutlet weak var firstFaceView: FaceView! {
         didSet {
             updateUI()
+            isFacesEquals()
         }
     }
     var expression = Expression(eyes: .Open, mouth: .Smile, colorPattern: .Pumpkin) {
         didSet{
             updateUI() // to update the view every time the model changes
+            isFacesEquals()
         }
     }
     @IBOutlet weak var secondFaceView: FaceView! {
         didSet {
             secondUpdateUI()
+            isFacesEquals()
         }
     }
-    var secondExpression = Expression(eyes: .Closed, mouth: .Smile, colorPattern: .Ghost) {
+    var secondExpression = Expression(eyes: .Open, mouth: .Smile, colorPattern: .Ghost) {
         didSet{
             secondUpdateUI() // to update the view every time the model changes
+            isFacesEquals()
         }
     }
     
@@ -311,12 +347,19 @@ class ViewController: UIViewController {
             firstFaceView.eyeBallColor = UIColor(red: 54/255, green: 17/255, blue: 52/255, alpha: 1.0) // Black Coffee Color
             firstFaceView.mouthColor = firstFaceView.eyeBallColor
         }
-        
-        
-        
-        
-    
+             
 }
+    func isFacesEquals(){
+        let isEyesEquals = expression.eyes == secondExpression.eyes
+        let isMouthsEquals = expression.mouth == secondExpression.mouth
+        let isColorEquals = expression.colorPattern == secondExpression.colorPattern
+        
+        if(isEyesEquals && isMouthsEquals && isColorEquals) {
+            print("The two faces are equal.")
+        } else {
+            print("The two faces are not equal")
+        }
+    }
 }
     
     

@@ -24,6 +24,10 @@
                                     <outletCollection property="gestureRecognizers" destination="Q18-xi-hlf" appends="YES" id="BmK-wA-qvp"/>
                                     <outletCollection property="gestureRecognizers" destination="3kg-Zu-vLP" appends="YES" id="uYc-wc-8fW"/>
                                     <outletCollection property="gestureRecognizers" destination="LzC-h3-Hlf" appends="YES" id="vZE-jK-Xnx"/>
+                                    <outletCollection property="gestureRecognizers" destination="j1n-CM-XYV" appends="YES" id="Eom-3I-5HK"/>
+                                    <outletCollection property="gestureRecognizers" destination="aOd-CB-P0X" appends="YES" id="9uR-XJ-2TW"/>
+                                    <outletCollection property="gestureRecognizers" destination="5il-YJ-MbD" appends="YES" id="7ao-2H-dBe"/>
+                                    <outletCollection property="gestureRecognizers" destination="3vK-aB-kJM" appends="YES" id="33R-qb-8ih"/>
                                 </connections>
                             </view>
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="DmF-rV-uvN" userLabel="firstFaceView" customClass="FaceView" customModule="Lecture_14_10_2020" customModuleProvider="target">
@@ -102,6 +106,26 @@
                         <action selector="secondPinchFace:" destination="BYZ-38-t0r" id="cMN-wB-dLb"/>
                     </connections>
                 </pinchGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="j1n-CM-XYV" userLabel="SecondSwipeUp Gesture Recognizer">
+                    <connections>
+                        <action selector="SecondSwipeUpOnFace:" destination="BYZ-38-t0r" id="AtU-FN-roE"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="aOd-CB-P0X" userLabel="SecondSwipeRight Gesture Recognizer">
+                    <connections>
+                        <action selector="SecondSwipeRightOnFace:" destination="BYZ-38-t0r" id="Se3-hl-xm4"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="3vK-aB-kJM" userLabel="SecondSwipeDown">
+                    <connections>
+                        <action selector="SecondSwipeDownOnFace:" destination="BYZ-38-t0r" id="WZJ-d5-HFD"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="5il-YJ-MbD" userLabel="SecondSwipeLeft">
+                    <connections>
+                        <action selector="secondSwipeLeftOnFace:" destination="BYZ-38-t0r" id="Qvu-yk-Dpm"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="124.55357142857142"/>
         </scene>
