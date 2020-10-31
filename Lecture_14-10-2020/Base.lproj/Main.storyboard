@@ -15,6 +15,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a1z-mg-o3K" userLabel="secondFaceView" customClass="FaceView" customModule="Lecture_14_10_2020" customModuleProvider="target">
+                                <rect key="frame" x="61" y="384" width="299" height="291"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                            </view>
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="DmF-rV-uvN" userLabel="firstFaceView" customClass="FaceView" customModule="Lecture_14_10_2020" customModuleProvider="target">
                                 <rect key="frame" x="20" y="44" width="374" height="259"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,6 +81,11 @@
                         <action selector="swipeLeftOnFace:" destination="BYZ-38-t0r" id="5hF-Xa-k76"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <tapGestureRecognizer id="Q18-xi-hlf">
+                    <connections>
+                        <action selector="tappedFace:" destination="BYZ-38-t0r" id="ccq-jv-qXI"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="124.55357142857142"/>
         </scene>
