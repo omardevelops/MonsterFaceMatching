@@ -17,6 +17,7 @@
 		29200EAF2536C8A000D44431 /* Lecture_14_10_2020UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29200EAE2536C8A000D44431 /* Lecture_14_10_2020UITests.swift */; };
 		29200EC12536CEF300D44431 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29200EC02536CEF300D44431 /* FaceView.swift */; };
 		29200F79254AAC2900D44431 /* FacialExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29200F78254AAC2900D44431 /* FacialExpression.swift */; };
+		29563DFC254E0D5E0017667D /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29563DFB254E0D5E0017667D /* FinalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		29200EB02536C8A000D44431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29200EC02536CEF300D44431 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
 		29200F78254AAC2900D44431 /* FacialExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacialExpression.swift; sourceTree = "<group>"; };
+		29563DFB254E0D5E0017667D /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				29200E8C2536C89E00D44431 /* AppDelegate.swift */,
 				29200E8E2536C89E00D44431 /* SceneDelegate.swift */,
 				29200E902536C89E00D44431 /* ViewController.swift */,
+				29563DFB254E0D5E0017667D /* FinalViewController.swift */,
 				29200E922536C89E00D44431 /* Main.storyboard */,
 				29200EC02536CEF300D44431 /* FaceView.swift */,
 				29200F78254AAC2900D44431 /* FacialExpression.swift */,
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29200E912536C89E00D44431 /* ViewController.swift in Sources */,
+				29563DFC254E0D5E0017667D /* FinalViewController.swift in Sources */,
 				29200E8D2536C89E00D44431 /* AppDelegate.swift in Sources */,
 				29200F79254AAC2900D44431 /* FacialExpression.swift in Sources */,
 				29200E8F2536C89E00D44431 /* SceneDelegate.swift in Sources */,

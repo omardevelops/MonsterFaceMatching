@@ -58,10 +58,17 @@ class ViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! FinalViewController
+        destinationVC.finalScore = score
+    }
+    
     @IBAction func pressExitGame(_ sender: UIButton) {
         timer.invalidate()
         let alert = UIAlertController(title: "Are you sure you want to exit?", message: "Your score will be lost.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {action in
+            self.performSegue(withIdentifier: "resultsPage", sender: self)
+        }))
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { action in self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
         }))
         self.present(alert, animated: true)
@@ -73,7 +80,6 @@ class ViewController: UIViewController {
     // Tapping the face controls the curvature of the mouth
     @IBAction func tappedFace(_ recognizer: UITapGestureRecognizer) {
         if recognizer.state == .ended {
-            print("ouch")
             
             switch expression.mouth {
             case .Joy:
@@ -90,7 +96,7 @@ class ViewController: UIViewController {
                 expression.mouth = .Joy
                 
             }
-            print(expression.mouth)
+            
         }
         
     }
@@ -112,7 +118,7 @@ class ViewController: UIViewController {
                     expression.eyes = .Open
                    }
             
-                print(expression.eyes)
+                
                }
         
     }
@@ -120,41 +126,35 @@ class ViewController: UIViewController {
     // SWIPE UP RECOGNIZER
     @IBAction func swipeUpOnFace(_ recognizer: UISwipeGestureRecognizer) {
         if recognizer.state == .ended {
-            print("Swiped upwards")
             expression.colorPattern = .Robot
         }
-            print(expression.colorPattern)
+            
             
         }
     @IBAction func swipeRightOnFace(_ recognizer: UISwipeGestureRecognizer) {
         if recognizer.state == .ended {
-            print("Swiped right")
             expression.colorPattern = .Ghost
             
         }
     }
     @IBAction func swipeDownOnFace(_ recognizer: UISwipeGestureRecognizer) {
         if recognizer.state == .ended {
-            print("Swiped down")
             expression.colorPattern = .Pumpkin
         }
     }
     @IBAction func swipeLeftOnFace(_ recognizer: UISwipeGestureRecognizer) {
         if recognizer.state == .ended {
-            print("Swiped left")
             expression.colorPattern = .Frog
         }
     }
     @IBAction func pinchToReset(_ recognizer: UIPinchGestureRecognizer) {
         if recognizer.state == .began {
-            print("I got pinched!")
             expression.colorPattern = .Yellow
 
         }
     }
     @IBAction func secondTap(_ recognizer: UITapGestureRecognizer) {
         if recognizer.state == .ended {
-            print("ouch")
             
             switch secondExpression.mouth {
             case .Joy:
@@ -171,12 +171,11 @@ class ViewController: UIViewController {
                 secondExpression.mouth = .Joy
                 
             }
-            print(secondExpression.mouth)
+            
         }
     }
     @IBAction func secondHoldOnFace(_ recognizer: UILongPressGestureRecognizer) {
         if recognizer.state == .began {
-               print("begin")
                
                
                switch secondExpression.eyes {
@@ -191,46 +190,41 @@ class ViewController: UIViewController {
                 secondExpression.eyes = .Open
                }
         
-            print(secondExpression.eyes)
+            
            }
     }
     @IBAction func secondPinchFace(_ recognizer: UIPinchGestureRecognizer) {
         if recognizer.state == .began {
-            print("I got pinched!")
             secondExpression.colorPattern = .Yellow
 
         }
     }
     @IBAction func SecondSwipeUpOnFace(_ recognizer: UISwipeGestureRecognizer) {
         if recognizer.state == .ended {
-            print("Swiped upwards")
             secondExpression.colorPattern = .Robot
         }
-            print(secondExpression.colorPattern)
+            
             
         }
         
     @IBAction func SecondSwipeRightOnFace(_ recognizer: UISwipeGestureRecognizer) {
         if recognizer.state == .ended {
-            print("Swiped upwards")
             secondExpression.colorPattern = .Ghost
         }
-            print(secondExpression.colorPattern)
+            
     }
     @IBAction func SecondSwipeDownOnFace(_ recognizer: UISwipeGestureRecognizer) {
         if recognizer.state == .ended {
-            print("Swiped upwards")
             secondExpression.colorPattern = .Pumpkin
         }
-            print(secondExpression.colorPattern)
+            
         
     }
     @IBAction func secondSwipeLeftOnFace(_ recognizer: UISwipeGestureRecognizer) {
         if recognizer.state == .ended {
-            print("Swiped upwards")
             secondExpression.colorPattern = .Frog
         }
-            print(secondExpression.colorPattern)
+            
     }
     @IBOutlet weak var firstFaceView: FaceView! {
         didSet {
@@ -266,7 +260,6 @@ class ViewController: UIViewController {
     }
     
    func secondUpdateUI() {
-            print("I am in SECOND UPDATE UI function")
             switch secondExpression.eyes {
             case .Closed :
                 secondFaceView.leftEyeOpen = false
