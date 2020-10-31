@@ -15,7 +15,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         updateUI()
         secondUpdateUI()
-        isFacesEquals()
+        print(isFacesEquals())
+        randomizeExpressions()
         
     }
 
@@ -98,8 +99,6 @@ class ViewController: UIViewController {
         if recognizer.state == .began {
             print("I got pinched!")
             expression.colorPattern = .Yellow
-            expression.eyes = .Open
-            expression.mouth = .Smile
 
         }
     }
@@ -149,8 +148,6 @@ class ViewController: UIViewController {
         if recognizer.state == .began {
             print("I got pinched!")
             secondExpression.colorPattern = .Yellow
-            secondExpression.eyes = .Open
-            secondExpression.mouth = .Smile
 
         }
     }
@@ -188,25 +185,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var firstFaceView: FaceView! {
         didSet {
             updateUI()
-            isFacesEquals()
+            print(isFacesEquals())
         }
     }
     var expression = Expression(eyes: .Open, mouth: .Smile, colorPattern: .Pumpkin) {
         didSet{
             updateUI() // to update the view every time the model changes
-            isFacesEquals()
+            print(isFacesEquals())
         }
     }
     @IBOutlet weak var secondFaceView: FaceView! {
         didSet {
             secondUpdateUI()
-            isFacesEquals()
+            print(isFacesEquals())
         }
     }
     var secondExpression = Expression(eyes: .Open, mouth: .Smile, colorPattern: .Ghost) {
         didSet{
             secondUpdateUI() // to update the view every time the model changes
-            isFacesEquals()
+            print(isFacesEquals())
         }
     }
     
@@ -252,12 +249,12 @@ class ViewController: UIViewController {
                 secondFaceView.skullColor = UIColor(red: 253/255, green: 213/255, blue: 60/255, alpha: 1.0) // Yellow
                 secondFaceView.eyeColor = UIColor.white
                 secondFaceView.eyeBallColor = UIColor(red: 58/255, green: 46/255, blue: 57/255, alpha: 1.0) // Black Coffee Color
-                secondFaceView.mouthColor = firstFaceView.eyeBallColor
+                secondFaceView.mouthColor = UIColor(red: 58/255, green: 46/255, blue: 57/255, alpha: 1.0) // Black Coffee Color
             case .Robot:
                 secondFaceView.skullColor = UIColor(red: 14/255, green: 121/255, blue: 178/255, alpha: 1.0) // Alien Green
                 secondFaceView.eyeColor = UIColor(red: 58/255, green: 46/255, blue: 57/255, alpha: 0.5) // Black Coffee Color
                 secondFaceView.eyeBallColor = UIColor(red: 35/255, green: 240/255, blue: 199/255, alpha: 1.0) // White Eyeball
-                secondFaceView.mouthColor = secondFaceView.eyeBallColor
+                secondFaceView.mouthColor = UIColor(red: 35/255, green: 240/255, blue: 199/255, alpha: 1.0) // White Eyeball
 
             case .Pumpkin:
                 secondFaceView.skullColor = UIColor(red: 254/255, green: 127/255, blue: 45/255, alpha: 1.0) // Alien Green
@@ -324,7 +321,7 @@ class ViewController: UIViewController {
             firstFaceView.skullColor = UIColor(red: 253/255, green: 213/255, blue: 60/255, alpha: 1.0) // Yellow
             firstFaceView.eyeColor = UIColor.white
             firstFaceView.eyeBallColor = UIColor(red: 58/255, green: 46/255, blue: 57/255, alpha: 1.0) // Black Coffee Color
-            firstFaceView.mouthColor = firstFaceView.eyeBallColor
+            firstFaceView.mouthColor = UIColor(red: 58/255, green: 46/255, blue: 57/255, alpha: 1.0) // Black Coffee Color
         case .Robot:
             firstFaceView.skullColor = UIColor(red: 14/255, green: 121/255, blue: 178/255, alpha: 1.0) // Alien Green
             firstFaceView.eyeColor = UIColor(red: 58/255, green: 46/255, blue: 57/255, alpha: 0.5) // Black Coffee Color
@@ -345,20 +342,35 @@ class ViewController: UIViewController {
             firstFaceView.skullColor = UIColor(red: 251/255, green: 254/255, blue: 249/255, alpha: 1) // Yellow
             firstFaceView.eyeColor = UIColor.white
             firstFaceView.eyeBallColor = UIColor(red: 54/255, green: 17/255, blue: 52/255, alpha: 1.0) // Black Coffee Color
-            firstFaceView.mouthColor = firstFaceView.eyeBallColor
+            firstFaceView.mouthColor = UIColor(red: 54/255, green: 17/255, blue: 52/255, alpha: 1.0) // Black Coffee Color
         }
              
 }
-    func isFacesEquals(){
+    func isFacesEquals() -> Bool{
         let isEyesEquals = expression.eyes == secondExpression.eyes
         let isMouthsEquals = expression.mouth == secondExpression.mouth
         let isColorEquals = expression.colorPattern == secondExpression.colorPattern
         
         if(isEyesEquals && isMouthsEquals && isColorEquals) {
-            print("The two faces are equal.")
+            // Run slight timer here
+            randomizeExpressions()
+            return true
         } else {
-            print("The two faces are not equal")
+            return false
         }
+        
+        
+    }
+    
+    func randomizeExpressions() {
+        expression.eyes = Expression.Eyes(rawValue: Int.random(in: 0...3))!
+        secondExpression.eyes = Expression.Eyes(rawValue: Int.random(in: 0...3))!
+        expression.mouth = Expression.Mouth(rawValue: Int.random(in: 0...5))!
+        secondExpression.mouth = Expression.Mouth(rawValue: Int.random(in: 0...5))!
+        expression.colorPattern = Expression.ColorPattern(rawValue: Int.random(in: 0...4))!
+        secondExpression.colorPattern = Expression.ColorPattern(rawValue: Int.random(in: 0...4))!
+        
+        
     }
 }
     

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,44 +10,46 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Lecture_14_10_2020" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5fE-PY-Yha"/>
+                        <viewControllerLayoutGuide type="bottom" id="ENE-26-1Fx"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a1z-mg-o3K" userLabel="secondFaceView" customClass="FaceView" customModule="Lecture_14_10_2020" customModuleProvider="target">
-                                <rect key="frame" x="61" y="384" width="299" height="291"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Q18-xi-hlf" appends="YES" id="BmK-wA-qvp"/>
-                                    <outletCollection property="gestureRecognizers" destination="3kg-Zu-vLP" appends="YES" id="uYc-wc-8fW"/>
-                                    <outletCollection property="gestureRecognizers" destination="LzC-h3-Hlf" appends="YES" id="vZE-jK-Xnx"/>
-                                    <outletCollection property="gestureRecognizers" destination="j1n-CM-XYV" appends="YES" id="Eom-3I-5HK"/>
-                                    <outletCollection property="gestureRecognizers" destination="aOd-CB-P0X" appends="YES" id="9uR-XJ-2TW"/>
-                                    <outletCollection property="gestureRecognizers" destination="5il-YJ-MbD" appends="YES" id="7ao-2H-dBe"/>
-                                    <outletCollection property="gestureRecognizers" destination="3vK-aB-kJM" appends="YES" id="33R-qb-8ih"/>
-                                </connections>
-                            </view>
-                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="DmF-rV-uvN" userLabel="firstFaceView" customClass="FaceView" customModule="Lecture_14_10_2020" customModuleProvider="target">
-                                <rect key="frame" x="20" y="44" width="374" height="259"/>
+                            <view contentMode="scaleToFill" id="DmF-rV-uvN" userLabel="firstFaceView" customClass="FaceView" customModule="Lecture_14_10_2020" customModuleProvider="target">
+                                <rect key="frame" x="58" y="64" width="300" height="293"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.13902837454947561" green="0.15656155208427483" blue="0.19275460025380708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
-                                <viewLayoutGuide key="safeArea" id="R4C-Ul-jO8"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="IbC-Ze-8lC" appends="YES" id="fKX-J6-yYa"/>
-                                    <outletCollection property="gestureRecognizers" destination="M2T-DC-QuC" appends="YES" id="A3j-aK-F5X"/>
-                                    <outletCollection property="gestureRecognizers" destination="g7t-cW-Cnv" appends="YES" id="8cS-HU-3gW"/>
+                                    <outletCollection property="gestureRecognizers" destination="aXM-EJ-jCm" appends="YES" id="U68-e1-BJH"/>
                                     <outletCollection property="gestureRecognizers" destination="SY7-22-kMD" appends="YES" id="TQz-kN-ukE"/>
                                     <outletCollection property="gestureRecognizers" destination="apL-Tf-OAU" appends="YES" id="hhg-b7-Grn"/>
-                                    <outletCollection property="gestureRecognizers" destination="aXM-EJ-jCm" appends="YES" id="U68-e1-BJH"/>
                                     <outletCollection property="gestureRecognizers" destination="sbM-LE-yyB" appends="YES" id="eQK-fx-zrB"/>
+                                    <outletCollection property="gestureRecognizers" destination="IbC-Ze-8lC" appends="YES" id="fKX-J6-yYa"/>
+                                    <outletCollection property="gestureRecognizers" destination="g7t-cW-Cnv" appends="YES" id="8cS-HU-3gW"/>
+                                    <outletCollection property="gestureRecognizers" destination="M2T-DC-QuC" appends="YES" id="A3j-aK-F5X"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a1z-mg-o3K" userLabel="secondFaceView" customClass="FaceView" customModule="Lecture_14_10_2020" customModuleProvider="target">
+                                <rect key="frame" x="49" y="377" width="319" height="312"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1390283745" green="0.1565615521" blue="0.1927546003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="aOd-CB-P0X" appends="YES" id="9uR-XJ-2TW"/>
+                                    <outletCollection property="gestureRecognizers" destination="Q18-xi-hlf" appends="YES" id="BmK-wA-qvp"/>
+                                    <outletCollection property="gestureRecognizers" destination="3kg-Zu-vLP" appends="YES" id="uYc-wc-8fW"/>
+                                    <outletCollection property="gestureRecognizers" destination="5il-YJ-MbD" appends="YES" id="7ao-2H-dBe"/>
+                                    <outletCollection property="gestureRecognizers" destination="LzC-h3-Hlf" appends="YES" id="vZE-jK-Xnx"/>
+                                    <outletCollection property="gestureRecognizers" destination="3vK-aB-kJM" appends="YES" id="33R-qb-8ih"/>
+                                    <outletCollection property="gestureRecognizers" destination="j1n-CM-XYV" appends="YES" id="Eom-3I-5HK"/>
                                 </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.1390283745" green="0.1565615521" blue="0.1927546003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="firstFaceView" destination="DmF-rV-uvN" id="CBo-UZ-OrD"/>
