@@ -20,6 +20,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Q18-xi-hlf" appends="YES" id="BmK-wA-qvp"/>
+                                    <outletCollection property="gestureRecognizers" destination="3kg-Zu-vLP" appends="YES" id="uYc-wc-8fW"/>
+                                    <outletCollection property="gestureRecognizers" destination="LzC-h3-Hlf" appends="YES" id="vZE-jK-Xnx"/>
+                                </connections>
                             </view>
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="DmF-rV-uvN" userLabel="firstFaceView" customClass="FaceView" customModule="Lecture_14_10_2020" customModuleProvider="target">
                                 <rect key="frame" x="20" y="44" width="374" height="259"/>
@@ -43,6 +48,7 @@
                     </view>
                     <connections>
                         <outlet property="firstFaceView" destination="DmF-rV-uvN" id="CBo-UZ-OrD"/>
+                        <outlet property="secondFaceView" destination="a1z-mg-o3K" id="TQw-bB-1aU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -81,11 +87,21 @@
                         <action selector="swipeLeftOnFace:" destination="BYZ-38-t0r" id="5hF-Xa-k76"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <tapGestureRecognizer id="Q18-xi-hlf">
+                <tapGestureRecognizer id="Q18-xi-hlf" userLabel="SecondTap Gesture Recognizer">
                     <connections>
-                        <action selector="tappedFace:" destination="BYZ-38-t0r" id="ccq-jv-qXI"/>
+                        <action selector="secondTap:" destination="BYZ-38-t0r" id="3bm-aT-QnT"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="3kg-Zu-vLP" userLabel="Second Long Press Gesture Recognizer">
+                    <connections>
+                        <action selector="secondHoldOnFace:" destination="BYZ-38-t0r" id="KUS-wK-eoD"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pinchGestureRecognizer id="LzC-h3-Hlf" userLabel="Second Pinch Gesture Recognizer">
+                    <connections>
+                        <action selector="secondPinchFace:" destination="BYZ-38-t0r" id="cMN-wB-dLb"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="124.55357142857142"/>
         </scene>
