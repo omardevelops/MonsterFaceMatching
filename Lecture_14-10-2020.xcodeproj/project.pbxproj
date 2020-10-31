@@ -18,6 +18,7 @@
 		29200EC12536CEF300D44431 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29200EC02536CEF300D44431 /* FaceView.swift */; };
 		29200F79254AAC2900D44431 /* FacialExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29200F78254AAC2900D44431 /* FacialExpression.swift */; };
 		29563DFC254E0D5E0017667D /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29563DFB254E0D5E0017667D /* FinalViewController.swift */; };
+		29563DFE254E1E820017667D /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29563DFD254E1E820017667D /* TutorialViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		29200EC02536CEF300D44431 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
 		29200F78254AAC2900D44431 /* FacialExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacialExpression.swift; sourceTree = "<group>"; };
 		29563DFB254E0D5E0017667D /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
+		29563DFD254E1E820017667D /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				29200E8E2536C89E00D44431 /* SceneDelegate.swift */,
 				29200E902536C89E00D44431 /* ViewController.swift */,
 				29563DFB254E0D5E0017667D /* FinalViewController.swift */,
+				29563DFD254E1E820017667D /* TutorialViewController.swift */,
 				29200E922536C89E00D44431 /* Main.storyboard */,
 				29200EC02536CEF300D44431 /* FaceView.swift */,
 				29200F78254AAC2900D44431 /* FacialExpression.swift */,
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29200E912536C89E00D44431 /* ViewController.swift in Sources */,
+				29563DFE254E1E820017667D /* TutorialViewController.swift in Sources */,
 				29563DFC254E0D5E0017667D /* FinalViewController.swift in Sources */,
 				29200E8D2536C89E00D44431 /* AppDelegate.swift in Sources */,
 				29200F79254AAC2900D44431 /* FacialExpression.swift in Sources */,
