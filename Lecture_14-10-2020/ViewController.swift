@@ -13,10 +13,11 @@ class ViewController: UIViewController {
     var timer = Timer()
     var endTimer = Timer()
     var startTimer = Timer()
-    var seconds = 60 // Default is 60
-    var score = 1 // Default is 0
+    var seconds = 20 // Default is 60
+    var score = 0 // Default is 0
     var isFirstTime = true // To check if views are randomized for the first time
     var isRandomizing = false // To fix a bug where the faces became equal more than once which added multiple scores
+    var isTimerOver = false
     
     @IBOutlet weak var timerLabel: UILabel!
     
@@ -38,6 +39,7 @@ class ViewController: UIViewController {
             leaveGameButton.setTitle("Next >", for: .normal)
             leaveGameButton.setTitleColor(UIColor.white, for: .normal)
             leaveGameButton.backgroundColor = UIColor.systemGreen
+            isTimerOver = true
             timer.invalidate()
             
         } else {
@@ -59,19 +61,25 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(isTimerOver) {
         let destinationVC = segue.destination as! FinalViewController
         destinationVC.finalScore = score
+        }
     }
     
     @IBAction func pressExitGame(_ sender: UIButton) {
+        if(isTimerOver) {
+            self.performSegue(withIdentifier: "resultsPage", sender: self)
+        } else {
         timer.invalidate()
         let alert = UIAlertController(title: "Are you sure you want to exit?", message: "Your score will be lost.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {action in
-            self.performSegue(withIdentifier: "resultsPage", sender: self)
+            self.performSegue(withIdentifier: "goToMainMenu", sender: self)
         }))
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { action in self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
         }))
         self.present(alert, animated: true)
+        }
         
     }
     

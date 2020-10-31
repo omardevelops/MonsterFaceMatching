@@ -329,6 +329,7 @@ one minute</string>
                         <outlet property="secondFaceView" destination="a1z-mg-o3K" id="TQw-bB-1aU"/>
                         <outlet property="timerLabel" destination="Zyv-T5-HSW" id="DUg-qL-vf9"/>
                         <segue destination="za1-Sq-JWO" kind="presentation" identifier="resultsPage" modalPresentationStyle="fullScreen" id="TeN-MD-xse"/>
+                        <segue destination="NYJ-Ww-3SE" kind="presentation" identifier="goToMainMenu" modalPresentationStyle="fullScreen" id="hn8-Ow-Q9a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -450,6 +451,7 @@ one minute</string>
                                 </state>
                                 <connections>
                                     <action selector="pressExitGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ADU-iE-0S4"/>
+                                    <segue destination="NYJ-Ww-3SE" kind="presentation" modalPresentationStyle="fullScreen" id="YtL-QR-Tqc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHq-jq-Nnn" userLabel="ActualFinalScore">
@@ -503,7 +505,8 @@ one minute</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZgN-rW-Y6r"/>
+        <segue reference="mj2-6b-J1K"/>
+        <segue reference="YtL-QR-Tqc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ghost" width="512" height="512"/>
