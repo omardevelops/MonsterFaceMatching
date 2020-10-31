@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     var timer = Timer()
     var endTimer = Timer()
     var startTimer = Timer()
-    var seconds = 60
-    var score = 0
+    var seconds = 60 // Default is 60
+    var score = 0 // Default is 0
     var isFirstTime = true // To check if views are randomized for the first time
     var isRandomizing = false // To fix a bug where the faces became equal more than once which added multiple scores
     
@@ -22,16 +22,29 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var scoreLabel: UILabel!
     
+    @IBOutlet weak var leaveGameButton: UIButton!
+    
     @objc func updateTimer() {
         seconds -= 1
         if (seconds == 0) {
             timerLabel.text = "TIME UP!"
-            timerLabel.textColor = UIColor.purple
+            timerLabel.textColor = UIColor.white
+            timerLabel.backgroundColor = UIColor.systemBlue
+            scoreLabel.text = "FinalScore: "+String(score)
+            scoreLabel.textColor = UIColor.black
+            scoreLabel.backgroundColor = UIColor.systemYellow
+            firstFaceView.isUserInteractionEnabled = false
+            secondFaceView.isUserInteractionEnabled = false
+            leaveGameButton.setTitle("Next >", for: .normal)
+            leaveGameButton.setTitleColor(UIColor.white, for: .normal)
+            leaveGameButton.backgroundColor = UIColor.systemGreen
             timer.invalidate()
             
+        } else {
+            timerLabel.text = String(seconds) + "s left"
         }
         
-        timerLabel.text = String(seconds) + "s left"
+        
         
     }
     override func viewDidLoad() {
@@ -386,9 +399,13 @@ class ViewController: UIViewController {
         let isColorEquals = expression.colorPattern == secondExpression.colorPattern
         
         if(isEyesEquals && isMouthsEquals && isColorEquals) {
-            score += 1
-            scoreLabel.text = "Score: "+String(score)
-            randomizeExpressions()
+            timer.invalidate() // Pauses countdown
+            endTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(equalTimer), userInfo: nil, repeats: false)
+            
+            scoreLabel.text = "MATCH"
+            scoreLabel.textColor = UIColor.systemGreen
+            firstFaceView.isUserInteractionEnabled = false
+            secondFaceView.isUserInteractionEnabled = false
             return true
         } else {
         return false
@@ -396,6 +413,12 @@ class ViewController: UIViewController {
             
     }
     @objc func equalTimer() {
+        scoreLabel.textColor = UIColor.systemYellow
+        score += 1
+        scoreLabel.text = "Score: "+String(score)
+        randomizeExpressions()
+        firstFaceView.isUserInteractionEnabled = true
+        secondFaceView.isUserInteractionEnabled = true
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
     }
     

@@ -68,7 +68,7 @@ one minute</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fib-Lp-Yo0" userLabel="Timer">
                                 <rect key="frame" x="20" y="534" width="374" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="57"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="53"/>
                                 <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -77,6 +77,7 @@ one minute</string>
                     </view>
                     <connections>
                         <outlet property="firstFaceView" destination="DmF-rV-uvN" id="CBo-UZ-OrD"/>
+                        <outlet property="leaveGameButton" destination="Jb7-9R-VE5" id="RWe-Ya-eut"/>
                         <outlet property="scoreLabel" destination="fib-Lp-Yo0" id="gG3-Fb-XAM"/>
                         <outlet property="secondFaceView" destination="a1z-mg-o3K" id="TQw-bB-1aU"/>
                         <outlet property="timerLabel" destination="Zyv-T5-HSW" id="DUg-qL-vf9"/>
