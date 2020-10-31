@@ -57,6 +57,17 @@ class ViewController: UIViewController {
         randomizeExpressions()
         
     }
+    
+    @IBAction func pressExitGame(_ sender: UIButton) {
+        timer.invalidate()
+        let alert = UIAlertController(title: "Are you sure you want to exit?", message: "Your score will be lost.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { action in self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
+        }))
+        self.present(alert, animated: true)
+        
+    }
+    
 
     
     // Tapping the face controls the curvature of the mouth
