@@ -7,12 +7,37 @@
 //
 
 import UIKit
+import Foundation
 
 class ViewController: UIViewController {
-
+    var timer = Timer()
+    var endTimer = Timer()
+    var startTimer = Timer()
+    var seconds = 60
+    var score = 0
+    var isFirstTime = true // To check if views are randomized for the first time
+    var isRandomizing = false // To fix a bug where the faces became equal more than once which added multiple scores
+    
+    @IBOutlet weak var timerLabel: UILabel!
+    
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+    @objc func updateTimer() {
+        seconds -= 1
+        if (seconds == 0) {
+            timerLabel.text = "TIME UP!"
+            timerLabel.textColor = UIColor.purple
+            timer.invalidate()
+            
+        }
+        
+        timerLabel.text = String(seconds) + "s left"
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
         updateUI()
         secondUpdateUI()
         print(isFacesEquals())
@@ -20,6 +45,7 @@ class ViewController: UIViewController {
         
     }
 
+    
     // Tapping the face controls the curvature of the mouth
     @IBAction func tappedFace(_ recognizer: UITapGestureRecognizer) {
         if recognizer.state == .ended {
@@ -185,25 +211,33 @@ class ViewController: UIViewController {
     @IBOutlet weak var firstFaceView: FaceView! {
         didSet {
             updateUI()
+            if (!isRandomizing) {
             print(isFacesEquals())
+            }
         }
     }
     var expression = Expression(eyes: .Open, mouth: .Smile, colorPattern: .Pumpkin) {
         didSet{
             updateUI() // to update the view every time the model changes
+            if (!isRandomizing) {
             print(isFacesEquals())
+            }
         }
     }
     @IBOutlet weak var secondFaceView: FaceView! {
         didSet {
             secondUpdateUI()
+            if (!isRandomizing) {
             print(isFacesEquals())
+            }
         }
     }
     var secondExpression = Expression(eyes: .Open, mouth: .Smile, colorPattern: .Ghost) {
         didSet{
             secondUpdateUI() // to update the view every time the model changes
+            if (!isRandomizing) {
             print(isFacesEquals())
+            }
         }
     }
     
@@ -352,23 +386,29 @@ class ViewController: UIViewController {
         let isColorEquals = expression.colorPattern == secondExpression.colorPattern
         
         if(isEyesEquals && isMouthsEquals && isColorEquals) {
-            // Run slight timer here
+            score += 1
+            scoreLabel.text = "Score: "+String(score)
             randomizeExpressions()
             return true
         } else {
-            return false
+        return false
         }
-        
-        
+            
+    }
+    @objc func equalTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
     }
     
+    
     func randomizeExpressions() {
+        isRandomizing = true
         expression.eyes = Expression.Eyes(rawValue: Int.random(in: 0...3))!
         secondExpression.eyes = Expression.Eyes(rawValue: Int.random(in: 0...3))!
         expression.mouth = Expression.Mouth(rawValue: Int.random(in: 0...5))!
         secondExpression.mouth = Expression.Mouth(rawValue: Int.random(in: 0...5))!
         expression.colorPattern = Expression.ColorPattern(rawValue: Int.random(in: 0...4))!
         secondExpression.colorPattern = Expression.ColorPattern(rawValue: Int.random(in: 0...4))!
+        isRandomizing = false
         
         
     }
