@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     var endTimer = Timer()
     var startTimer = Timer()
     var seconds = 60 // Default is 60
-    var score = 0 // Default is 0
+    var score = 1 // Default is 0
     var isFirstTime = true // To check if views are randomized for the first time
     var isRandomizing = false // To fix a bug where the faces became equal more than once which added multiple scores
     

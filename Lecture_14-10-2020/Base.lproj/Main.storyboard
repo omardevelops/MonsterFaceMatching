@@ -68,7 +68,7 @@ one minute</string>
                                 <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fib-Lp-Yo0" userLabel="Timer">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fib-Lp-Yo0" userLabel="Score">
                                 <rect key="frame" x="20" y="534" width="374" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="53"/>
@@ -180,15 +180,15 @@ one minute</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good job!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05G-iG-EDZ" userLabel="ResultTitle">
-                                <rect key="frame" x="95.5" y="52" width="223" height="78"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="57"/>
+                                <rect key="frame" x="113.5" y="52" width="187.5" height="66"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="48"/>
                                 <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final Score" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YL0-WK-edO" userLabel="ResultTitle">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final Score" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YL0-WK-edO" userLabel="FinalScoreTitle">
                                 <rect key="frame" x="30" y="399" width="354" height="74.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="57"/>
-                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0g-9H-13V">
@@ -200,6 +200,7 @@ one minute</string>
                                 </state>
                                 <connections>
                                     <action selector="pressExitGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K7o-rG-hza"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="mj2-6b-J1K"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfc-cA-veV">
@@ -213,18 +214,17 @@ one minute</string>
                                     <action selector="pressExitGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ADU-iE-0S4"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4rx-wY-rcS" userLabel="secondFaceView" customClass="FaceView" customModule="Lecture_14_10_2020" customModuleProvider="target">
-                                <rect key="frame" x="102" y="148" width="210" height="206"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1390283745" green="0.1565615521" blue="0.1927546003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <gestureRecognizers/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHq-jq-Nnn" userLabel="ResultTitle">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHq-jq-Nnn" userLabel="ActualFinalScore">
                                 <rect key="frame" x="30" y="483.5" width="354" height="135.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="104"/>
                                 <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rx-wY-rcS" userLabel="secondFaceView" customClass="FaceView" customModule="Lecture_14_10_2020" customModuleProvider="target">
+                                <rect key="frame" x="25" y="197" width="364" height="166"/>
+                                <color key="backgroundColor" red="0.1390283745" green="0.1565615521" blue="0.1927546003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.1390283745" green="0.1565615521" blue="0.1927546003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -236,22 +236,32 @@ one minute</string>
                             <constraint firstItem="gh2-ah-rRt" firstAttribute="top" secondItem="qfc-cA-veV" secondAttribute="bottom" constant="8" id="NRg-sQ-oq0"/>
                             <constraint firstItem="qfc-cA-veV" firstAttribute="top" secondItem="C0g-9H-13V" secondAttribute="bottom" constant="20" id="PNn-t1-PIj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qfc-cA-veV" secondAttribute="trailing" constant="10" id="QET-VV-elA"/>
+                            <constraint firstItem="4rx-wY-rcS" firstAttribute="centerX" secondItem="3Os-ob-NEW" secondAttribute="centerX" id="QLA-Sv-rAt"/>
                             <constraint firstItem="C0g-9H-13V" firstAttribute="top" secondItem="oHq-jq-Nnn" secondAttribute="bottom" constant="70" id="TfD-cW-EEA"/>
                             <constraint firstItem="05G-iG-EDZ" firstAttribute="centerX" secondItem="3Os-ob-NEW" secondAttribute="centerX" id="Wro-ba-Bfr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YL0-WK-edO" secondAttribute="trailing" constant="10" id="b1m-A9-BDd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4rx-wY-rcS" secondAttribute="trailing" constant="5" id="fGo-h1-can"/>
+                            <constraint firstItem="4rx-wY-rcS" firstAttribute="leading" secondItem="3Os-ob-NEW" secondAttribute="leadingMargin" constant="5" id="fV8-Nb-arI"/>
                             <constraint firstItem="oHq-jq-Nnn" firstAttribute="leading" secondItem="3Os-ob-NEW" secondAttribute="leadingMargin" constant="10" id="hkI-be-uOM"/>
                             <constraint firstItem="YL0-WK-edO" firstAttribute="leading" secondItem="3Os-ob-NEW" secondAttribute="leadingMargin" constant="10" id="mJB-P3-FaQ"/>
+                            <constraint firstItem="4rx-wY-rcS" firstAttribute="top" secondItem="05G-iG-EDZ" secondAttribute="bottom" constant="79" id="pGB-80-5yl"/>
                             <constraint firstItem="YL0-WK-edO" firstAttribute="centerX" secondItem="3Os-ob-NEW" secondAttribute="centerX" id="qCy-5W-h02"/>
                             <constraint firstItem="qfc-cA-veV" firstAttribute="leading" secondItem="3Os-ob-NEW" secondAttribute="leadingMargin" constant="10" id="sCu-GW-Xtd"/>
                             <constraint firstItem="C0g-9H-13V" firstAttribute="centerX" secondItem="3Os-ob-NEW" secondAttribute="centerX" id="sh1-KF-BbB"/>
+                            <constraint firstItem="YL0-WK-edO" firstAttribute="top" secondItem="4rx-wY-rcS" secondAttribute="bottom" constant="36" id="sto-GX-rQH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="C0g-9H-13V" secondAttribute="trailing" constant="10" id="xwY-gI-V4f"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lYa-Vx-tyP"/>
+                    <connections>
+                        <outlet property="finalScoreNumber" destination="oHq-jq-Nnn" id="rM0-Yc-zZj"/>
+                        <outlet property="finalScoreTitle" destination="YL0-WK-edO" id="2RT-tN-hLf"/>
+                        <outlet property="motivationLabel" destination="05G-iG-EDZ" id="MP8-aN-9Tj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zb-kM-F6h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833" y="126"/>
+            <point key="canvasLocation" x="831.88405797101461" y="125.89285714285714"/>
         </scene>
     </scenes>
 </document>

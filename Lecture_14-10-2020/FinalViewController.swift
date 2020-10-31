@@ -17,10 +17,27 @@ class FinalViewController: UIViewController {
         print("Entered Final View")
         // Do any additional setup after loading the view.
         print(finalScore)
+        finalScoreNumber.text = String(finalScore)
+        
+        if(finalScore < 7) {
+            finalScoreNumber.textColor = UIColor.systemOrange
+            motivationLabel.text = "You can do better.\n I believe in you!"
+            motivationLabel.textColor = UIColor.systemOrange
+        } else if (finalScore >= 15) {
+            finalScoreNumber.textColor = UIColor(red: 6/255, green: 214/255, blue: 160/255, alpha: 1)
+            motivationLabel.text = "SPECTACULAR!"
+            motivationLabel.textColor = UIColor(red: 6/255, green: 214/255, blue: 160/255, alpha: 1)
+        } else {
+            finalScoreNumber.textColor = UIColor(red: 244/255, green: 213/255, blue: 141/255, alpha: 1)
+            motivationLabel.textColor = UIColor(red: 244/255, green: 213/255, blue: 141/255, alpha: 1)
+        }
     }
+    @IBOutlet weak var motivationLabel: UILabel!
     
+    @IBOutlet weak var finalScoreTitle: UILabel!
     
-
+    @IBOutlet weak var finalScoreNumber: UILabel!
+    
     /*
     // MARK: - Navigation
 
